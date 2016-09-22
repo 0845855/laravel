@@ -78,12 +78,22 @@ class RouteServiceProvider extends ServiceProvider
     }
 }
 
-Route::get('users', function()
+Route::get('news', function()
 {
-    return 'Users!';
+    return view('news');
 });
 
-Route::get('hello', function()
+Route::get('register', function()
 {
-    return 'Hello World!';
+    return view('register');
+});
+
+Route::get('welcome', function()
+{
+    return view('welcome');
+});
+
+Route::get('profile', function()
+{
+    return view('profile');
 });

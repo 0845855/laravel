@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Welcome!
+    De 24/7 Gamenieuws website!
 @endsection
 
 @section('content')
@@ -13,9 +13,7 @@
                 <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games.</p>
-
-                <p>Gedurende de gehele maand oktober kunnen Xbox One-gamers met een Gold-abonnement Super Mega Baseball: Extra Innings gratis aan hun catalogus toevoegen. Tussen 16 oktober en 15 november kunnen zij daarnaast ook The Escapists downloaden.</p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
 
             </div><!-- /.blog-post -->
 
@@ -23,9 +21,7 @@
                 <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games.</p>
-
-                <p>Gedurende de gehele maand oktober kunnen Xbox One-gamers met een Gold-abonnement Super Mega Baseball: Extra Innings gratis aan hun catalogus toevoegen. Tussen 16 oktober en 15 november kunnen zij daarnaast ook The Escapists downloaden.</p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
 
             </div><!-- /.blog-post -->
 
@@ -33,9 +29,7 @@
                 <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games.</p>
-
-                <p>Gedurende de gehele maand oktober kunnen Xbox One-gamers met een Gold-abonnement Super Mega Baseball: Extra Innings gratis aan hun catalogus toevoegen. Tussen 16 oktober en 15 november kunnen zij daarnaast ook The Escapists downloaden.</p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
 
             </div><!-- /.blog-post -->
 
@@ -43,9 +37,7 @@
                 <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games.</p>
-
-                <p>Gedurende de gehele maand oktober kunnen Xbox One-gamers met een Gold-abonnement Super Mega Baseball: Extra Innings gratis aan hun catalogus toevoegen. Tussen 16 oktober en 15 november kunnen zij daarnaast ook The Escapists downloaden.</p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
 
             </div><!-- /.blog-post -->
 
@@ -53,9 +45,7 @@
                 <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games.</p>
-
-                <p>Gedurende de gehele maand oktober kunnen Xbox One-gamers met een Gold-abonnement Super Mega Baseball: Extra Innings gratis aan hun catalogus toevoegen. Tussen 16 oktober en 15 november kunnen zij daarnaast ook The Escapists downloaden.</p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
 
             </div><!-- /.blog-post -->
 
@@ -63,9 +53,7 @@
                 <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games.</p>
-
-                <p>Gedurende de gehele maand oktober kunnen Xbox One-gamers met een Gold-abonnement Super Mega Baseball: Extra Innings gratis aan hun catalogus toevoegen. Tussen 16 oktober en 15 november kunnen zij daarnaast ook The Escapists downloaden.</p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
 
             </div><!-- /.blog-post -->
 
@@ -79,7 +67,7 @@
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-            <div class="sidebar-module sidebar-module-inset" style="border: 1px solid black">
+            <div class="sidebar-module sidebar-module-inset">
                 <h3>Inloggen</h3>
                 <form action="#" method="post">
                     <div class="form-group">
@@ -121,39 +109,4 @@
         </div><!-- /.blog-sidebar -->
 
     </div><!-- /.row -->
-
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Sign Up</h3>
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="email">Your E-mail</label>
-                    <input class="form-control" type="text" name="email" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="first-name">Your First Name</label>
-                    <input class="form-control" type="text" name="first_name" id="first_name">
-                </div>
-                <div class="form-group">
-                    <label for="password">Your Password</label>
-                    <input class="form-control" type="password" name="password" id="password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-        <div class="col-md-6">
-            <h3>Inloggen</h3>
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="email">E-mailadres</label>
-                    <input class="form-control" type="text" name="email" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Wachtwoord</label>
-                    <input class="form-control" type="password" name="password" id="password">
-                </div>
-                <button type="submit" class="btn btn-primary">Inloggen</button>
-            </form>
-        </div>
-    </div>
 @endsection
