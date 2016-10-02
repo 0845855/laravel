@@ -12,6 +12,8 @@
                 <a class="navbar-brand" href="welcome">GamersPlaza</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
+
+
                 <form class="navbar-form navbar-right">
                     <div class="form-group">
                         <input type="text" placeholder="E-mailadres" class="form-control">
@@ -21,6 +23,8 @@
                     </div>
                     <button type="submit" class="btn btn-success">Login</button>
                 </form>
+
+
                 <a href="register"><button class="btn btn-success">Registreren</button></a>
             </div><!--/.navbar-collapse -->
         </div>

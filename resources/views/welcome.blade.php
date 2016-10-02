@@ -67,20 +67,6 @@
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-            <div class="sidebar-module sidebar-module-inset">
-                <h3>Inloggen</h3>
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="email">E-mailadres</label>
-                        <input class="form-control" type="text" name="email" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Wachtwoord</label>
-                        <input class="form-control" type="password" name="password" id="password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Inloggen</button>
-                </form>
-            </div>
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
