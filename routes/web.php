@@ -25,3 +25,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
+
+// Nieuws routes
+Route::resource('/admin/news', 'NewsController');

@@ -14,18 +14,10 @@
             <div id="navbar" class="navbar-collapse collapse">
 
 
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" placeholder="E-mailadres" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Wachtwoord" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Login</button>
-                </form>
-
-
-                <a href="register"><button class="btn btn-success">Registreren</button></a>
+                <div class="navbar-form navbar-right">
+                    <a href="login"><button class="btn btn-success">Inloggen</button></a>
+                    <a href="register"><button class="btn btn-success">Registreren</button></a>
+                </div>
             </div><!--/.navbar-collapse -->
         </div>
     </nav>
