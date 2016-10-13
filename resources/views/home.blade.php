@@ -11,10 +11,21 @@
                         <p>Hallo {{ Auth::user()->name }},<br/>
                             Welkom op je profielpagina. Hier is het mogelijk om je gegevens aan te passen.</p>
 
-                        <p><a href="#">Wachtwoord aanpassen</a><br/>
-                            <a href="#">Gegevens aanpassen</a></p>
+                        <p><a href="password_edit">Wachtwoord aanpassen</a><br/>
+                            <a href="user_edit">Gegevens aanpassen</a></p>
                 </div>
             </div>
+
+            @if (Auth::user()->admin == 1)
+            <div class="panel panel-default">
+                <div class="panel-heading">Adminpaneel</div>
+
+                <div class="panel-body">
+                    <p><a href="admin/news/index">Nieuwsoverzicht</a><br/>
+                        <a href="admin/users/index">Gebruikersoverzicht</a></p>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 </div>

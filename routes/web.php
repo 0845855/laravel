@@ -11,8 +11,18 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('password_edit', function () {
+    return view('password_edit');
+});
+
+Route::get('user_edit', function () {
+    return view('user_edit');
 });
 
 // route to show the login form
@@ -28,3 +38,7 @@ Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 // Nieuws routes
 Route::resource('/admin/news', 'NewsController');
+
+Route::post('/createpost', [
+    'uses' => 'CommentsController@postCreateComment',
+    'as' => 'comment.create']);

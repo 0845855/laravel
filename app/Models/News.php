@@ -14,7 +14,7 @@ class News extends Model
      */
     protected $table = 'news';
 
-    protected $connection = 'news-connnection';
+    //protected $connection = 'news-connnection';
 
 
     /**

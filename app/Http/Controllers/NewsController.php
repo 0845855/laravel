@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
+use App\Models\News;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 
 class NewsController extends Controller
@@ -17,7 +19,8 @@ class NewsController extends Controller
     {
         //
         $news = News::all();
-        return View::make('admin.news.index');
+        $news = DB::table('news')->paginate(15);
+        return View('admin.news.index');
     }
 
     /**
@@ -80,8 +83,7 @@ class NewsController extends Controller
         $news = News::find($id);
 
         // Show het bericht in een view
-        return View::make('news.show')
-            ->with('news', $news);
+        return View('news.show');
     }
 
     /**

@@ -10,34 +10,34 @@
         <div class="col-sm-8 blog-main">
 
             <div class="blog-post">
-                <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
+                <h2 class="blog-post-title"><a href="news">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</a></h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer...</a></p>
 
             </div><!-- /.blog-post -->
 
             <div class="blog-post">
-                <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
+                <h2 class="blog-post-title"><a href="news">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</a></h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer...</a></p>
 
             </div><!-- /.blog-post -->
 
             <div class="blog-post">
-                <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
+                <h2 class="blog-post-title"><a href="news">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</a></h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer...</a></p>
 
             </div><!-- /.blog-post -->
 
             <div class="blog-post">
-                <h2 class="blog-post-title">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</h2>
+                <h2 class="blog-post-title"><a href="news">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</a></h2>
                 <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer</a></p>
+                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer...</a></p>
 
             </div><!-- /.blog-post -->
 

@@ -54,16 +54,29 @@
                 <div class="reply" style="float: left; width: 70%;margin-left: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
 
             </div>
+             <!--foreach($comments as $comment)
+
+                <div class="user_reply" style="min-height:120px;">
+                    <div class="name" style="float:left;"><p> //$comment->user_id }}</p></div>
+                    <div class="avatar" style="float:left;">
+                        <img src="http://i.imgur.com/Whp9NWg.png"/>
+                    </div>
+                    <div class="reply" style="float: left; width: 70%;margin-left: 20px;"> //$comment->body }}</div>
+
+             endforeach-->
 
             <hr>
 
+            @include('includes.message-block')
+
             <div class="create-reply">
-                <form action="#" method="post">
+                <form action="" method="post">
                     <div class="form-group">
                         <label for="text">Nieuwe reactie</label>
-                        <textarea class="form-control" type="text" name="reply" id="reply"></textarea>
+                        <textarea class="form-control" type="text" name="body" id="body" placeholder="Typ hier je reactie..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Verzenden</button>
+                    <input type="hidden" value="{{ Session::token() }}" name="_token">
                 </form>
             </div>
 
