@@ -21,6 +21,7 @@ class CreateNewsTable extends Migration
                 $table->string('title');
                 $table->text('introduction');
                 $table->text('news_item');
+                $table->string('category');
                 $table->integer('author_id');
                 $table->dateTime('created_at');
                 $table->dateTime('updated_at');

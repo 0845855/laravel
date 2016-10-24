@@ -25,6 +25,6 @@ class User extends Authenticatable
     ];
 
     public function comments(){
-        return $this->hasMany('App\Comments');
+        return $this->hasMany('App\Models\Comments');
     }
 }

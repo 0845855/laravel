@@ -24,4 +24,9 @@ class News extends Model
         'introduction',
         'news_item'
     ];
+
+    public function news()
+    {
+        return $this->belongsToMany('app\Models\User');
+    }
 }

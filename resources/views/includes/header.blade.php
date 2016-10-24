@@ -1,36 +1,62 @@
 <header>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
+
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="welcome">GamersPlaza</a>
+
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
 
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <li><a class="worldNews" href="{{ url('/nieuws') }}">Nieuws</a></li>
+                    <li><a class="techNews" href="{{ url('/reviews') }}">Reviews</a></li>
+                    <li><a class="gameNews" href="{{ url('/previews') }}">Previews</a></li>
+                </ul>
 
-                <div class="navbar-form navbar-right">
-                    <a href="login"><button class="btn btn-success">Inloggen</button></a>
-                    <a href="register"><button class="btn btn-success">Registreren</button></a>
-                </div>
-            </div><!--/.navbar-collapse -->
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @if (Auth::guest())
+                        <li><button type="button" class="btn btn-primary" id="btn-login"> <a class="login" href="{{ url('/login') }}">Inloggen</a></button></li>
+                        <li><button type="button" class="btn btn-default" id="btn-reg"><a href="{{ url('/register') }}">Registreren</a></button></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/home') }}">Profiel</a></li>
+                                <li><a href="{{ url('/admin') }}">Admin dashboard</a></li>
+                                <li><a href="{{ url('/addNews') }}">Maak nieuwsbericht</a></li>
+                                <li>
+                                    <a href="{{ url('/logout') }}"
+                                       onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Uitloggen
+                                    </a>
+
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
+            </div>
         </div>
     </nav>
-
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-        </div>
-    </div>
-
-    <div class="container">
-
-    </div>
 </header>

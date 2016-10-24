@@ -24,8 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = News::all();
-        return view('home')->with('news', $news);
+        return view('home');
     }
 
     public function doLogin()
