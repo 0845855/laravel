@@ -14,9 +14,6 @@ class News extends Model
      */
     protected $table = 'news';
 
-    //protected $connection = 'news-connnection';
-
-
     /**
      * The attributes that are mass assignable.
      *

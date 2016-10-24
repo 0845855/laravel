@@ -22,7 +22,7 @@
                                     <input class="form-control" type="password" name="password_confirm" id="password_confirm">
                                 </div>
                             <button type="submit" class="btn btn-primary">Wijzig wachtwoord</button>
-                            <input type="hidden" value="{{ Session::token() }}" name="_token">
+                            <input type="hidden" value="{{ csrf_token() }}" name="_token">
                         </form>
                     </div>
                 </div>

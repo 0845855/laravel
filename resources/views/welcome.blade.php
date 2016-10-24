@@ -9,13 +9,17 @@
 
         <div class="col-sm-8 blog-main">
 
-            <div class="blog-post">
-                <h2 class="blog-post-title"><a href="news">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</a></h2>
-                <p class="blog-post-meta">21 september 2016 door <a href="#">Robin van Leeuwen</a></p>
+            @foreach ($news as $item)
 
-                <p>Hoewel het nog zo'n anderhalve week duurt voordat de maand oktober van start gaat, heeft Microsoft zojuist alvast onthuld welke gratis games Xbox Live Gold-abonnees volgende maand mogen verwachten. Zoals gebruikelijk zijn dit weer twee Xbox One- en twee Xbox 360-games. <a href="news">Lees meer...</a></p>
+                <div class="blog-post">
+                    <h2 class="blog-post-title"><a href="news">{{ $item->title }}</a></h2>
+                    <p class="blog-post-meta">{{ $item->created_at }} door <a href="#">Robin van Leeuwen</a></p>
 
-            </div><!-- /.blog-post -->
+                    <p>{{ $item->introduction }} <a href="news/{{ $item->id }}">Lees meer...</a></p>
+
+                </div><!-- /.blog-post -->
+
+            @endforeach
 
             <div class="blog-post">
                 <h2 class="blog-post-title"><a href="news">Games with Gold in oktober 2016 bevat o.a. The Escapists en I Am Alive</a></h2>

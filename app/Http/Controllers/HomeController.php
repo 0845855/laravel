@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $news = News::all();
+        return view('home')->with('news', $news);
     }
 
     public function doLogin()

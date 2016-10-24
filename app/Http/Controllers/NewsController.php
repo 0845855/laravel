@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\News;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
@@ -17,10 +18,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
         $news = News::all();
-        $news = DB::table('news')->paginate(15);
-        return View('admin.news.index');
+        return view('index', ['news' => $news]);
     }
 
     /**
@@ -30,8 +29,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        // load the create form (app/views/news/create.blade.php)
-        return View::make('news.create');
+        return view('admin.news.create');
     }
 
     /**
@@ -42,33 +40,20 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        // validate
-        // read more on validation at http://laravel.com/docs/validation
-        $rules = array(
-            'title'       => 'required',
-            'introduction'      => 'required',
-            'news_item' => 'required'
-        );
+        $this->validate($request, [
+            'title' => 'required',
+            'introduction' => 'required',
+            'news_item' => 'required',
+            'author_id' => 'required',
+        ]);
 
-        $validator = Validator::make(Input::all(), $rules);
-
-        // process the login
-        if ($validator->fails()) {
-            return Redirect::to('news/create')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {
-            // store
-            $news = new News;
-            $news->title             = Input::get('title');
-            $news->introduction      = Input::get('introduction');
-            $news->news_item         = Input::get('news_item');
-            $news->save();
-
-            // redirect
-            Session::flash('message', 'Bericht succesvol geplaatst');
-            return Redirect::to('news');
-        }
+        $news = new News;
+        $news->title = $request->title;
+        $news->introduction = $request->introduction;
+        $news->news_item = $request->news_item;
+        $news->author_id = $request->author_id;
+        $news->save();
+        return redirect('admin.news.index')->with('message', 'Nieuwsbericht is geupdated.');
     }
 
     /**
@@ -79,11 +64,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        // vraag nieuwsbericht op
         $news = News::find($id);
-
-        // Show het bericht in een view
-        return View('news.show');
+        return view('admin.news.show')->with('detailpage', $news);
     }
 
     /**
@@ -94,12 +76,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        // Get nieuwsbericht
         $news = News::find($id);
-
-        // Show edit form in view
-        return View::make('news.edit')
-            ->with('news', $news);
+        return view('admin.news.edit')->with('detailpage', $news);
     }
 
     /**
@@ -111,32 +89,20 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // validate
-        // read more on validation at http://laravel.com/docs/validation
-        $rules = array(
-            'title'       => 'required',
-            'introduction'      => 'required',
-            'news_item' => 'required'
-        );
-        $validator = Validator::make(Input::all(), $rules);
+        $this->validate($request, [
+            'title' => 'required',
+            'introduction' => 'required',
+            'news_item' => 'required',
+            'author_id' => 'required',
+        ]);
 
-        // process the login
-        if ($validator->fails()) {
-            return Redirect::to('news/' . $id . '/edit')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {
-            // store
-            $nerd = News::find($id);
-            $nerd->title = Input::get('title');
-            $nerd->introduction = Input::get('introduction');
-            $nerd->news_item = Input::get('news_item');
-            $nerd->save();
-
-            // redirect
-            Session::flash('message', 'Nieuwsbericht succesvol aangepast!');
-            return Redirect::to('news');
-        }
+        $news = News::find($id);
+        $news->title = $request->title;
+        $news->introduction = $request->introduction;
+        $news->news_item = $request->news_item;
+        $news->author_id = Auth::user()->id;
+        $news->save();
+        return redirect('admin.news.index')->with('message', 'Nieuwsbericht is gewijzigd.');
     }
 
     /**
@@ -147,12 +113,8 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        // delete
         $news = News::find($id);
         $news->delete();
-
-        // redirect
-        Session::flash('message', 'Bericht succesvol verwijderd!');
-        return Redirect::to('news');
+        return redirect('admin.news.index')->with('message', 'Nieuwsbericht is verwijderd.');
     }
 }

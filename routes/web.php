@@ -13,6 +13,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+// homepage
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,6 +26,7 @@ Route::get('user_edit', function () {
     return view('user_edit');
 });
 
+// MAKE::AUTH
 // route to show the login form
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 
@@ -35,10 +37,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
+//END MAKE::AUTH
+
+
 
 // Nieuws routes
 Route::resource('/admin/news', 'NewsController');
+Route::resource('/admin/news/show', 'NewsController');
+Route::resource('/admin/news/edit', 'NewsController');
 
+// Reactie route
 Route::post('/createpost', [
     'uses' => 'CommentsController@postCreateComment',
     'as' => 'comment.create']);

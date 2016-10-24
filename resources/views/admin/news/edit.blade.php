@@ -3,27 +3,16 @@
 @section('content')
 <h1>Edit {{ $news->title }}</h1>
 
-<!-- if there are creation errors, they will show here -->
-{{ HTML::ul($errors->all()) }}
+<form class="" action="/blog/{{ $detailpage->id }}" method="post">
+    <input type="text" name="title" value="{{ $detailpage->title }}" placeholder="Titel">
+    {{ ($errors->has('title')) ? $errors->first('title') : '' }}<br/>
+    <textarea name="introduction" rows="8" cols="40" placeholder="Inleiding">{{ $detailpage->introduction }}</textarea>
+    {{ ($errors->has('introduction')) ? $errors->first('introduction') : '' }}<br/>
+    <textarea name="news_item" rows="8" cols="40" placeholder="Nieuwsbericht">{{ $detailpage->news_item }}</textarea>
+    {{ ($errors->has('news_item')) ? $errors->first('news_item') : '' }}<br/>
 
-{{ Form::model($news, array('route' => array('news.update', $news->id), 'method' => 'PUT')) }}
-
-<div class="form-group">
-    {{ Form::label('title', 'Titel') }}
-    {{ Form::text('title', null, array('class' => 'form-control')) }}
-</div>
-
-<div class="form-group">
-    {{ Form::label('introduction', 'Inleiding') }}
-    {{ Form::email('introduction', null, array('class' => 'form-control')) }}
-</div>
-
-<div class="form-group">
-    {{ Form::label('news_item', 'Bericht') }}
-    {{ Form::select('news_item', null, array('class' => 'form-control')) }}
-</div>
-
-{{ Form::submit('Wijzig bericht!', array('class' => 'btn btn-primary')) }}
-
-{{ Form::close() }}
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="submit" name="name" value="Wijzig bericht">
+</form>
 @endsection

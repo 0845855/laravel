@@ -22,7 +22,7 @@
 
                 <div class="panel-body">
                     <p><a href="admin/news/index">Nieuwsoverzicht</a><br/>
-                        <a href="admin/users/index">Gebruikersoverzicht</a></p>
+                        <a href="admin/users">Gebruikersoverzicht</a></p>
                 </div>
             </div>
             @endif
