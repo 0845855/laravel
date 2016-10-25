@@ -48,8 +48,30 @@ class NewsController extends Controller
 
     public function showNews($id)
     {
-        $news = News::find($id);
+        $news = News::where('id', $id)->first();
         return view('news', ['news' => $news]);
+    }
+
+    public function getAddNews(){
+        return view('addnews');
+    }
+
+    public function editNewsItem($id){
+
+        $news = News::where('id', $id)->first();
+        return view('editnews', ['news' => $news]);
+    }
+
+    public function deleteNewsItem($id){
+
+        $news = News::where('id', $id)->first();
+        return view('deletenews', ['news' => $news]);
+    }
+
+    public function overviewNews(){
+
+        $news = News::all();
+        return view('newsoverview', ['news' => $news]);
     }
 
     /**
@@ -57,8 +79,9 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function createNews(Request $request)
     {
+        dd($request->all());
         $this->validate($request, [
             'title' => 'required|max:50',
             'introduction' => 'required',
@@ -72,6 +95,7 @@ class NewsController extends Controller
         $news->introduction = $request->introduction;
         $news->news_item = $request->news_item;
         $news->category = $request->category;
+        $news->author_id = $request->author_id;
 
         $message = 'Nieuwsbericht is niet gemaakt';
         if($request->user()->news()->save($news))
@@ -79,7 +103,7 @@ class NewsController extends Controller
             $message = 'Nieuwsbericht is succesvol gemaakt';
         }
 
-        return redirect('addNews')->with(['message' => $message]);
+        return redirect('admin')->with(['message' => $message]);
     }
 
     /**

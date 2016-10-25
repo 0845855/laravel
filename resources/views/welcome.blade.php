@@ -11,9 +11,9 @@
 
             @foreach ($news as $item)
                 <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="news/{{ $item->id }}">{{ $item->title }}</a></h2>
+                    <h2 class="blog-post-title"><a href="{{ route('news.show', $item->id) }}">{{ $item->title }}</a></h2>
 
-                    <p>{{ $item->introduction }} <a href="news/{{ $item->id }}">Lees meer...</a></p>
+                    <p>{{ $item->introduction }} <a href="{{ route('news.show', $item->id) }}">Lees meer...</a></p>
 
                 </div><!-- /.blog-post -->
                 <hr>

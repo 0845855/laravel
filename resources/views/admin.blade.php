@@ -12,8 +12,10 @@
                         <div class="panel-heading">Adminpaneel</div>
 
                         <div class="panel-body">
-                            <p><a href="#">Nieuwsoverzicht</a><br/>
-                                <a href="#">Gebruikersoverzicht</a></p>
+                            <p><a href="addnews">Nieuw nieuwsbericht maken</a><br/>
+                                <a href="newsoverview">Nieuwsberichten overzicht</a><br/>
+
+                                <a href="useroverview">Gebruikersoverzicht</a></p>
                         </div>
                     </div>
             </div>

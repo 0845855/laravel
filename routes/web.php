@@ -25,10 +25,9 @@ Route::get('/reviews', 'newsController@reviewNews');
 Route::get('/previews', 'newsController@previewNews');
 Route::get('/nieuws', 'newsController@nieuwsNews');
 
-Route::get('/news/{id}', 'newsController@showNews');
+Route::get('/news/{news}', ['as' => 'news.show', 'uses' => 'newsController@showNews']);
 
-Route::get('article/{news}', ['as'=>'news.show', 'uses' => 'newsController@showNews']);
-
+//Route::get('/news/{id}', ['as'=>'news.show', 'uses' => 'newsController@showNews']);
 
 
 /*               AUTHENTICATION */
@@ -59,9 +58,9 @@ Route::get('user_edit', function () {
 /*              ADMIN SECTIE */
 
 // Nieuws routes
-Route::resource('/admin/news', 'NewsController');
-Route::resource('/admin/news/show', 'NewsController');
-Route::resource('/admin/news/edit', 'NewsController');
+//Route::resource('/admin/news', 'NewsController');
+//Route::resource('/admin/news/show', 'NewsController');
+//Route::resource('/admin/news/edit', 'NewsController');
 
 // Reactie route
 Route::post('/createpost', [
@@ -70,29 +69,40 @@ Route::post('/createpost', [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::group(['middleware' => 'auth'], function(){
-    Route::get('/loginSuccess', 'HomeController@index');
-    Route::get('/profile', 'pageController@profile');
+Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin', 'pageController@admin');
-    Route::get('/addNews', 'pageController@addNews');
-    Route::post('/createNews', ['uses' => 'NewsController@createNews', 'as' => 'news.create']);
+
+    // Nieuwsbericht maken
+    Route::get('/addnews', ['uses' => 'NewsController@getAddNews']);
+    Route::post('/createnews', ['as' => 'news.create', 'uses' => 'NewsController@createNews']);
+
+// Nieuwsbericht wijzigen
+    Route::get('/editnews/{news}', ['as' => 'news.edit', 'uses' => 'NewsController@editNewsItem']);
+
+// Nieuwsbericht verwijderen
+    Route::get('/deletenews/{news}', ['as' => 'news.delete', 'uses' => 'NewsController@deleteNewsItem']);
+
+// Nieuwsberichten overview
+    Route::get('/newsoverview', 'newsController@overviewNews');
+
+// Nieuwsberichten overview
+    Route::get('/useroverview', 'AdminController@overviewUsers');
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

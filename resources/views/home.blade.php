@@ -15,17 +15,6 @@
                             <a href="user_edit">Gegevens aanpassen</a></p>
                 </div>
             </div>
-
-            @if (Auth::user()->admin == 1)
-            <div class="panel panel-default">
-                <div class="panel-heading">Adminpaneel</div>
-
-                <div class="panel-body">
-                    <p><a href="admin/news/index">Nieuwsoverzicht</a><br/>
-                        <a href="admin/users">Gebruikersoverzicht</a></p>
-                </div>
-            </div>
-            @endif
         </div>
     </div>
 </div>

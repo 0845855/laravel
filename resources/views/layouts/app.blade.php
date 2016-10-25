@@ -23,9 +23,7 @@
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/blog.css" rel="stylesheet">
-    <link href="../css/sticky-footer.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -49,6 +47,6 @@
 </div>
 
     <!-- Scripts -->
-    <script src="js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

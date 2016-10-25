@@ -17,6 +17,6 @@ class PageController extends Controller
     }
 
     public function addNews(){
-        return view('addNews');
+        return view('addnews');
     }
 }

@@ -5,23 +5,19 @@
 @endsection
 
 @section('content')
-    <div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">{{ $news->title }}</div>
 
-        <div class="col-sm-8 blog-main">
+                        <div class="panel-body">
+                            <p>{{ $news->introduction }}</p>
 
-            @foreach ($news as $item)
-                <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="news/{{ $item->id }}">{{ $item->title }}</a></h2>
-
-                    <p>{{ $item->introduction }}</p>
-
-                    <p>{{ $item->news_item }}</p>
-
-                </div><!-- /.blog-post -->
-                <hr>
-            @endforeach
-
-        </div><!-- /.blog-main -->
-
-    </div><!-- /.row -->
+                            <p>{{ $news->news_item }}</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
 @endsection
