@@ -23,6 +23,7 @@
                     <li><a class="worldNews" href="{{ url('/nieuws') }}">Nieuws</a></li>
                     <li><a class="techNews" href="{{ url('/reviews') }}">Reviews</a></li>
                     <li><a class="gameNews" href="{{ url('/previews') }}">Previews</a></li>
+                    <li><a class="gameNews" href="{{ url('/search') }}">Zoeken</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

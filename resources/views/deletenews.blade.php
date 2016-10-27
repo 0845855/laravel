@@ -12,7 +12,7 @@
                     <div class="panel-heading">Wijzig nieuwsbericht</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="#">
+                        <form class="form-horizontal" role="form" method="POST" action="{{route('news.deleteItem')}}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -62,10 +62,9 @@
 
                                 <div class="col-md-6">
                                     <select name="category" disabled>
-                                        <option value="">Kies categorie...</option>
-                                        <option value="nieuws">Nieuws</option>
-                                        <option value="review">Review</option>
-                                        <option value="preview">Preview</option>
+                                        <option value="nieuws" {{ $news->category == 'nieuws' ? 'selected="selected"' : '' }}>Nieuws</option>
+                                        <option value="review" {{ $news->category == 'review' ? 'selected="selected"' : '' }}>Review</option>
+                                        <option value="preview" {{ $news->category == 'preview' ? 'selected="selected"' : '' }}>Preview</option>
                                     </select>
 
                                     @if ($errors->has('category'))
@@ -76,7 +75,8 @@
                                 </div>
                             </div>
 
-                            <input type="hidden" name="author_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="id" disabled value="{{ $news->id }}">
+                            <input type="hidden" name="author_id" disabled value="{{ Auth::user()->id }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">

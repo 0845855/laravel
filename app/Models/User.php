@@ -29,6 +29,10 @@ class User extends Authenticatable
         return $this->admin;
     }
 
+    public function news(){
+        return $this->hasMany('App\Models\News');
+    }
+
     public function comments(){
         return $this->hasMany('App\Models\Comments');
     }

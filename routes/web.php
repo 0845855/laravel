@@ -11,7 +11,7 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
+//use Illuminate\Support\Facades\Route;
 
 /*                  HOMEPAGE */
 
@@ -19,11 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'newsController@homepageNews');
+Route::get('/', 'NewsController@homepageNews');
 
-Route::get('/reviews', 'newsController@reviewNews');
-Route::get('/previews', 'newsController@previewNews');
-Route::get('/nieuws', 'newsController@nieuwsNews');
+Route::get('/reviews', 'NewsController@reviewNews');
+Route::get('/previews', 'NewsController@previewNews');
+Route::get('/nieuws', 'NewsController@nieuwsNews');
+Route::get('/search', 'searchController@searchPage');
 
 Route::get('/news/{news}', ['as' => 'news.show', 'uses' => 'newsController@showNews']);
 
@@ -55,6 +56,7 @@ Route::get('user_edit', function () {
     return view('user_edit');
 });
 
+
 /*              ADMIN SECTIE */
 
 // Nieuws routes
@@ -74,19 +76,24 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     // Nieuwsbericht maken
     Route::get('/addnews', ['uses' => 'NewsController@getAddNews']);
-    Route::post('/createnews', ['as' => 'news.create', 'uses' => 'NewsController@createNews']);
+    Route::post('/createnews', ['uses' => 'NewsController@createNews']);
 
 // Nieuwsbericht wijzigen
     Route::get('/editnews/{news}', ['as' => 'news.edit', 'uses' => 'NewsController@editNewsItem']);
+    Route::post('/editnewsitem', ['uses' => 'NewsController@editNews']);
 
 // Nieuwsbericht verwijderen
     Route::get('/deletenews/{news}', ['as' => 'news.delete', 'uses' => 'NewsController@deleteNewsItem']);
+    Route::post('/deletenewsitem', ['as' => 'news.deleteItem', 'uses' => 'NewsController@deleteNews']);
 
 // Nieuwsberichten overview
     Route::get('/newsoverview', 'newsController@overviewNews');
 
 // Nieuwsberichten overview
     Route::get('/useroverview', 'AdminController@overviewUsers');
+
+// Gebruiker admin maken
+    Route::post('/makeadmin/{user}', ['as' => 'user.admin', 'uses' => 'AdminController@makeAdmin']);
 
 });
 

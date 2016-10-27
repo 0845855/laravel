@@ -12,8 +12,8 @@
                         <div class="panel-heading">Maak nieuw nieuwsbericht</div>
 
                         <div class="panel-body">
-                            <form class="form-horizontal" role="form" method="POST" action="createnews">
-                                {{ csrf_field() }}
+                            @include('includes.message-block')
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('createnews') }}">
 
                                 <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                     <label for="title" class="col-md-4 control-label">Titel</label>
@@ -33,7 +33,7 @@
                                     <label for="introduction" class="col-md-4 control-label">Inleiding</label>
 
                                     <div class="col-md-6">
-                                        <textarea name="introduction" rows="8" cols="50" placeholder="Inleiding"></textarea>
+                                        <textarea name="introduction" class="form-control" rows="8" cols="50" placeholder="Inleiding"></textarea>
 
                                         @if ($errors->has('introduction'))
                                             <span class="help-block">
@@ -47,7 +47,7 @@
                                     <label for="news_item" class="col-md-4 control-label">Nieuwsbericht</label>
 
                                     <div class="col-md-6">
-                                        <textarea name="news_item" rows="8" cols="50" placeholder="Nieuwsbericht"></textarea>
+                                        <textarea name="news_item" class="form-control" rows="8" cols="50" placeholder="Nieuwsbericht"></textarea>
 
                                         @if ($errors->has('news_item'))
                                             <span class="help-block">
@@ -61,7 +61,7 @@
                                     <label for="category" class="col-md-4 control-label">Categorie</label>
 
                                     <div class="col-md-6">
-                                        <select name="category">
+                                        <select name="category" class="form-control">
                                             <option value="nieuws">Nieuws</option>
                                             <option value="review">Review</option>
                                             <option value="preview">Preview</option>
@@ -75,7 +75,8 @@
                                     </div>
                                 </div>
 
-                                <input type="hidden" name="author_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}">
 
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">

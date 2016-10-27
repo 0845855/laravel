@@ -74,19 +74,14 @@ class NewsController extends Controller
         return view('newsoverview', ['news' => $news]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function createNews(Request $request)
     {
-        dd($request->all());
         $this->validate($request, [
             'title' => 'required|max:50',
             'introduction' => 'required',
             'news_item' => 'required',
-            'category' => 'required'
+            'category' => 'required',
+            'user_id' => 'required',
         ]);
 
         $news = new News();
@@ -95,7 +90,7 @@ class NewsController extends Controller
         $news->introduction = $request->introduction;
         $news->news_item = $request->news_item;
         $news->category = $request->category;
-        $news->author_id = $request->author_id;
+        $news->user_id = $request->user_id;
 
         $message = 'Nieuwsbericht is niet gemaakt';
         if($request->user()->news()->save($news))
@@ -103,7 +98,34 @@ class NewsController extends Controller
             $message = 'Nieuwsbericht is succesvol gemaakt';
         }
 
-        return redirect('admin')->with(['message' => $message]);
+        return redirect('addnews')->with(['message' => $message]);
+    }
+
+    public function editNews(Request $request)
+    {
+        $this->validate($request, [
+            'id' => 'required',
+            'title' => 'required',
+            'introduction' => 'required',
+            'news_item' => 'required',
+            'category' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        $news = News::find($request->id);
+        $news->title = $request->title;
+        $news->introduction = $request->introduction;
+        $news->news_item = $request->news_item;
+        $news->user_id = Auth::user()->id;
+        $news->save();
+        return redirect('editnews/'.$news->id)->with('message', 'Nieuwsbericht is succesvol gewijzigd.');
+    }
+
+    public function deleteNews(Request $request)
+    {
+        $news = News::where('id', $request->id)->first();
+        $news->delete();
+        return redirect('newsoverview')->with('message', 'Nieuwsbericht is verwijderd.');
     }
 
     /**

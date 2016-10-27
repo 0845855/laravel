@@ -12,7 +12,8 @@
                     <div class="panel-heading">Wijzig nieuwsbericht</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="#">
+                        @include('includes.message-block')
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('editnewsitem') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -33,7 +34,7 @@
                                 <label for="introduction" class="col-md-4 control-label">Inleiding</label>
 
                                 <div class="col-md-6">
-                                    <textarea name="introduction" rows="8" cols="50" placeholder="Inleiding">{{ $news->introduction }}"</textarea>
+                                    <textarea name="introduction" class="form-control" rows="8" cols="50" required placeholder="Inleiding">{{ $news->introduction }}</textarea>
 
                                     @if ($errors->has('introduction'))
                                         <span class="help-block">
@@ -47,7 +48,7 @@
                                 <label for="news_item" class="col-md-4 control-label">Nieuwsbericht</label>
 
                                 <div class="col-md-6">
-                                    <textarea name="news_item" rows="8" cols="50" placeholder="Nieuwsbericht">{{ $news->news_item }}"</textarea>
+                                    <textarea name="news_item" class="form-control" rows="8" cols="50" required placeholder="Nieuwsbericht">{{ $news->news_item }}</textarea>
 
                                     @if ($errors->has('news_item'))
                                         <span class="help-block">
@@ -61,11 +62,10 @@
                                 <label for="category" class="col-md-4 control-label">Categorie</label>
 
                                 <div class="col-md-6">
-                                    <select name="category">
-                                        <option value="">Kies categorie...</option>
-                                        <option value="nieuws">Nieuws</option>
-                                        <option value="review">Review</option>
-                                        <option value="preview">Preview</option>
+                                    <select name="category" required class="form-control">
+                                        <option value="nieuws" {{ $news->category == 'nieuws' ? 'selected="selected"' : '' }}>Nieuws</option>
+                                        <option value="review" {{ $news->category == 'review' ? 'selected="selected"' : '' }}>Review</option>
+                                        <option value="preview" {{ $news->category == 'preview' ? 'selected="selected"' : '' }}>Preview</option>
                                     </select>
 
                                     @if ($errors->has('category'))
@@ -76,7 +76,8 @@
                                 </div>
                             </div>
 
-                            <input type="hidden" name="author_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="id" value="{{ $news->id }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">

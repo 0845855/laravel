@@ -22,11 +22,12 @@ class News extends Model
     protected $fillable = [
         'title',
         'introduction',
-        'news_item'
+        'news_item',
+        'author_id',
     ];
 
-    public function news()
+    public function user()
     {
-        return $this->belongsToMany('app\Models\User');
+        return $this->belongsTo('app\Models\User');
     }
 }

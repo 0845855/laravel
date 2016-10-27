@@ -16,12 +16,16 @@ class AdminController extends Controller
         return view('useroverview', ['users' => $users]);
     }
 
-    public function makeAdmin($id, $bool)
+    public function makeAdmin(Request $request)
     {
-        if($bool == 1){
-            $bool = 0;
-        }elseif($bool == 0){
-            $bool = 1;
+        $user = User::where('id', $request->id)->first();
+        if($user->admin == 0){
+            $user->admin = 1;
+        }else{
+            $user->admin = 0;
         }
+
+        $user->save();
+        return view('useroverview')->with('message', 'De rol van de gebruiker is aangepast.');
     }
 }
