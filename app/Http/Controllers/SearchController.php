@@ -6,6 +6,7 @@ use App\Models\News;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
@@ -36,29 +37,26 @@ class SearchController extends Controller
          * Wanneer een categorie is gekozen moet de tekst alleen in deze categorieën worden gezocht.
          */
 
-        $search = News::where('title', 'like', '%'.$name.'%')  // WHERE
-            ->orWhere('introduction', 'like', '%'.$name.'%')   // OF
-            ->orWhere('news_item', 'like', '%'.$name.'%');     // OF
-                                                               // ALS CATEGORIE IS INGEVULD....
-            if(isset($category[0])){
-                $search = $search->where('category', '=', $category[0]); // WHERE
-            }
-            if(isset($category[1])){
-                $search = $search->where('category', '=', $category[1]); // EN
-            }
-            if(isset($category[2])){
-                $search = $search->where('category', '=', $category[2]); // EN
-            }
+        $search = News::orderBy('created_at');
 
-            $search = $search->orderBy('created_at', 'desc')->get();     // EN ORDER BY
+        if($category !== NULL) {
+            $i = 0;
+            foreach ($category as $categoryItem) {
+                if($i > 0) {
+                    $search = $search->orWhere('category', '=', $categoryItem);
 
-            /*if($category !== NULL) {
-                foreach ($category as $categoryItem) {
-                    $search->where('category', $categoryItem);
+                } else {
+                    $search = $search->where('category', '=', $categoryItem);
                 }
-            }*/
+                $i++;
+            }
+        }
 
-            //$search ->orderBy('created_at', 'desc')->get();
+        $search->where('title', 'like', '%'.$name.'%')
+            ->orWhere('introduction', 'like', '%'.$name.'%')
+            ->orWhere('news_item', 'like', '%'.$name.'%');
+
+            $search = $search->orderBy('created_at', 'desc')->get();
 
         return view('searchresults', ['search' => $search]);
     }

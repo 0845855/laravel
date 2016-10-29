@@ -12,9 +12,10 @@
                     <div class="panel-heading">Zoeken</div>
 
                     <div class="panel-body">
+                        @include('includes/message-block')
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('search.search') }}">
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('searchtext') ? ' has-error' : '' }}">
                                 <label for="name" class="col-md-4 control-label">Zoekopdracht</label>
 
                                 <div class="col-md-6">

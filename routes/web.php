@@ -25,7 +25,8 @@ Route::get('/previews', 'NewsController@previewNews');
 Route::get('/nieuws', 'NewsController@nieuwsNews');
 Route::get('/news/{news}', ['as' => 'news.show', 'uses' => 'NewsController@showNews']);
 Route::get('/search', 'searchController@searchPage');
-Route::post('/searchresults', ['as' => 'search.search', 'uses' => 'SearchController@search']);
+//Route::get('/searchresults', 'searchController@searchPage');
+Route::post('/search', ['as' => 'search.search', 'uses' => 'SearchController@search']);
 
 
 
