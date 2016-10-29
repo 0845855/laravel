@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Wijzig nieuwsbericht
+    Verwijder nieuwsbericht
 @endsection
 
 @section('content')
@@ -9,11 +9,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Wijzig nieuwsbericht</div>
+                    <div class="panel-heading">Verwijder nieuwsbericht</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{route('news.deleteItem')}}">
-                            {{ csrf_field() }}
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('deletenewsitem') }}">
 
                             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                 <label for="title" class="col-md-4 control-label">Titel</label>
@@ -33,7 +32,7 @@
                                 <label for="introduction" class="col-md-4 control-label">Inleiding</label>
 
                                 <div class="col-md-6">
-                                    <textarea name="introduction" rows="8" cols="50" disabled placeholder="Inleiding">{{ $news->introduction }}"</textarea>
+                                    <textarea name="introduction" rows="8" cols="50" disabled placeholder="Inleiding">{{ $news->introduction }}</textarea>
 
                                     @if ($errors->has('introduction'))
                                         <span class="help-block">
@@ -47,7 +46,7 @@
                                 <label for="news_item" class="col-md-4 control-label">Nieuwsbericht</label>
 
                                 <div class="col-md-6">
-                                    <textarea name="news_item" rows="8" cols="50" disabled placeholder="Nieuwsbericht">{{ $news->news_item }}"</textarea>
+                                    <textarea name="news_item" rows="8" cols="50" disabled placeholder="Nieuwsbericht">{{ $news->news_item }}</textarea>
 
                                     @if ($errors->has('news_item'))
                                         <span class="help-block">
@@ -75,8 +74,8 @@
                                 </div>
                             </div>
 
-                            <input type="hidden" name="id" disabled value="{{ $news->id }}">
-                            <input type="hidden" name="author_id" disabled value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="id" value="{{ $news->id }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">

@@ -24,25 +24,25 @@ class NewsController extends Controller
 
     public function homepageNews()
     {
-        $news = News::orderBy('created_at', 'desc')->get();
+        $news = News::where('active', '=', 1)->orderBy('created_at', 'desc')->get();
         return view('welcome', ['news' => $news]);
     }
 
     public function nieuwsNews()
     {
-        $news = News::where('category', '=', 'nieuws')->orderBy('created_at', 'desc')->get();
+        $news = News::where([['category', '=', 'nieuws'], ['active', '=', 1]])->orderBy('created_at', 'desc')->get();
         return view('shownews', ['news' => $news]);
     }
 
     public function reviewNews()
     {
-        $news = News::where('category', '=', 'review')->orderBy('created_at', 'desc')->get();
+        $news = News::where([['category', '=', 'review'], ['active', '=', 1]])->orderBy('created_at', 'desc')->get();
         return view('showreviews', ['news' => $news]);
     }
 
     public function previewNews()
     {
-        $news = News::where('category', '=', 'preview')->orderBy('created_at', 'desc')->get();
+        $news = News::where([['category', '=', 'preview'], ['active', '=', 1]])->orderBy('created_at', 'desc')->get();
         return view('showpreviews', ['news' => $news]);
     }
 
@@ -72,6 +72,28 @@ class NewsController extends Controller
 
         $news = News::all();
         return view('newsoverview', ['news' => $news]);
+    }
+
+    public function makeActive(Request $request)
+    {
+        $id = $request->id;
+        $active = $request->active;
+
+        if($active == 0){
+            $active = 1;
+        }else {
+            $active = 0;
+        }
+
+        $news = News::where('id', $id)->first();
+        $news->active = $active;
+
+        $message = 'Het is niet gelukt om de status van het nieuwsbericht tewijzigen.';
+        if($news->save()){
+            $message = 'De status van het bericht is succesvol gewijzigd.';
+            //return view('admin')->with(['message', 'De rol van de gebruiker is aangepast.']);
+            return redirect('newsoverview')->with(['message' => $message]);
+        }
     }
 
     public function createNews(Request $request)
@@ -117,15 +139,29 @@ class NewsController extends Controller
         $news->introduction = $request->introduction;
         $news->news_item = $request->news_item;
         $news->user_id = Auth::user()->id;
-        $news->save();
-        return redirect('editnews/'.$news->id)->with('message', 'Nieuwsbericht is succesvol gewijzigd.');
+        $message = 'Het is niet gelukt om het nieuwsbericht te wijzigen';
+        if($news->save())
+        {
+            $message = 'Het nieuwsbericht is succesvol gewijzigd.';
+        }
+        return redirect('editnews/'.$news->id)->with(['message' => $message]);
     }
 
     public function deleteNews(Request $request)
     {
-        $news = News::where('id', $request->id)->first();
-        $news->delete();
-        return redirect('newsoverview')->with('message', 'Nieuwsbericht is verwijderd.');
+        $id = $request->id;
+        $message = 'Nieuwsbericht is niet verwijderd';
+        News::findOrFail($id)->delete();
+        //$news->delete($news->id);
+
+        $request->session()->flash('message', 'Het bericht is verwijderd.');
+
+        /*if($request->user()->news()->delete($news))
+        {
+            $message = 'Nieuwsbericht is succesvol verwijderd';
+        }*/
+
+        return redirect('newsoverview');
     }
 
     /**

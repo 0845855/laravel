@@ -10,7 +10,7 @@
             <div class="col-md-8 col-md-offset-2">
                 @foreach ($news as $item)
                     <div class="panel panel-default">
-                        <div class="panel-heading"><a href={{ route('news.show', $item->id) }}">{{ $item->title }}</a></div>
+                        <div class="panel-heading"><a href="{{ route('news.show', $item->id) }}">{{ $item->title }}</a></div>
 
                         <div class="panel-body">
                             <p>{{ $item->introduction }}</p>

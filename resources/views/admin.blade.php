@@ -11,6 +11,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Adminpaneel</div>
 
+                        <div class="panel-body">@include('includes.message-block')</div>
+
                         <div class="panel-body">
                             <p><a href="addnews">Nieuw nieuwsbericht maken</a><br/>
                                 <a href="newsoverview">Nieuwsberichten overzicht</a><br/>

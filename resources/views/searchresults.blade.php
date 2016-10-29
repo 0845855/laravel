@@ -62,6 +62,16 @@
                         </form>
                     </div>
                 </div>
+
+                @foreach ($search as $item)
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><a href="{{ route('news.show', $item->id) }}">{{ $item->title }}</a></div>
+
+                        <div class="panel-body">
+                            <p>{{ $item->introduction }}</p>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

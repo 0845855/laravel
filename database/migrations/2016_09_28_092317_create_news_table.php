@@ -22,6 +22,7 @@ class CreateNewsTable extends Migration
                 $table->text('introduction');
                 $table->text('news_item');
                 $table->string('category');
+                $table->integer('active')->default(1);
                 $table->integer('user_id');
                 $table->timestamps();
             });

@@ -20,30 +20,24 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'NewsController@homepageNews');
-
 Route::get('/reviews', 'NewsController@reviewNews');
 Route::get('/previews', 'NewsController@previewNews');
 Route::get('/nieuws', 'NewsController@nieuwsNews');
+Route::get('/news/{news}', ['as' => 'news.show', 'uses' => 'NewsController@showNews']);
 Route::get('/search', 'searchController@searchPage');
+Route::post('/searchresults', ['as' => 'search.search', 'uses' => 'SearchController@search']);
 
-Route::get('/news/{news}', ['as' => 'news.show', 'uses' => 'newsController@showNews']);
 
-//Route::get('/news/{id}', ['as'=>'news.show', 'uses' => 'newsController@showNews']);
 
 
 /*               AUTHENTICATION */
 
 // route to show the login form
 Route::get('login', array('uses' => 'HomeController@showLogin'));
-
-// route to process the form
 Route::post('login', array('uses' => 'HomeController@doLogin'));
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
-
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
-//END MAKE::AUTH
 
 
 /*                  PROFIEL */
@@ -56,13 +50,6 @@ Route::get('user_edit', function () {
     return view('user_edit');
 });
 
-
-/*              ADMIN SECTIE */
-
-// Nieuws routes
-//Route::resource('/admin/news', 'NewsController');
-//Route::resource('/admin/news/show', 'NewsController');
-//Route::resource('/admin/news/edit', 'NewsController');
 
 // Reactie route
 Route::post('/createpost', [
@@ -84,16 +71,17 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 // Nieuwsbericht verwijderen
     Route::get('/deletenews/{news}', ['as' => 'news.delete', 'uses' => 'NewsController@deleteNewsItem']);
-    Route::post('/deletenewsitem', ['as' => 'news.deleteItem', 'uses' => 'NewsController@deleteNews']);
+    Route::post('/deletenewsitem', ['uses' => 'NewsController@deleteNews']);
 
 // Nieuwsberichten overview
     Route::get('/newsoverview', 'newsController@overviewNews');
+    Route::post('/makeactive', 'newsController@makeActive');
 
 // Nieuwsberichten overview
     Route::get('/useroverview', 'AdminController@overviewUsers');
 
-// Gebruiker admin maken
-    Route::post('/makeadmin/{user}', ['as' => 'user.admin', 'uses' => 'AdminController@makeAdmin']);
+// Gebruiker admin maken (en andersom)
+    Route::post('/makeadmin', ['uses' => 'AdminController@makeAdmin']);
 
 });
 
