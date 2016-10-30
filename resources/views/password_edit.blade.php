@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Wijzig wachtwoord
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -8,7 +12,8 @@
                     <div class="panel-heading">Wachtwoord aanpassen</div>
 
                     <div class="panel-body">
-                        <form action="" method="post">
+                        @include('includes.message-block')
+                        <form action="{{ url('updatePassword') }}" method="post">
                                 <div class="form-group">
                                     <label for="email">Huidig wachtwoord</label>
                                     <input class="form-control" type="password" name="password_current" id="password_current">

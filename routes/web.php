@@ -43,22 +43,28 @@ Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 /*                  PROFIEL */
 
-Route::get('password_edit', function () {
-    return view('password_edit');
-});
-
-Route::get('user_edit', function () {
-    return view('user_edit');
-});
-
-
 // Reactie route
 Route::post('/createpost', [
     'uses' => 'CommentsController@postCreateComment',
     'as' => 'comment.create']);
 
+// Alleen voor ingelogde gebruikers
+Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('password_edit', function () {
+        return view('password_edit');
+    });
 
+    // Wachtwoord wijzigen
+    Route::get('/password_edit', ['uses' => 'UserController@getEditPasswordPage']);
+    Route::post('/updatePassword', ['uses' => 'UserController@doChangePassword']);
+
+    // Eigen gegevens wijzigen
+    Route::get('/user_edit', ['uses' => 'UserController@getEditPage']);
+    Route::post('/updateUser', ['uses' => 'UserController@updateUser']);
+});
+
+// Alleen voor admins
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin', 'pageController@admin');
 

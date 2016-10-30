@@ -63,6 +63,12 @@
                     </div>
                 </div>
 
+                @if(count($search) == 0)
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Er zijn geen resultaten gevonden.</div>
+                    </div>
+                @endif
+
                 @foreach ($search as $item)
                     <div class="panel panel-default">
                         <div class="panel-heading"><a href="{{ route('news.show', $item->id) }}">{{ $item->title }}</a></div>

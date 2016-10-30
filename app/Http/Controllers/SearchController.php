@@ -38,6 +38,7 @@ class SearchController extends Controller
          */
 
         $search = News::orderBy('created_at');
+        $search = $search->where('active', '=', 1);
 
         if($category !== NULL) {
             $i = 0;

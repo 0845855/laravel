@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 
@@ -26,47 +26,64 @@ class UserController extends Controller
         return view('admin.users.index', ['users' => $users]);
     }
 
-    public function doChangePassword()
+    public function getEditPage()
     {
-        // validate the info, create rules for the inputs
-        $rules = array(
-            'password_current'    => 'required', // make sure the email is an actual email
-            'password'            => 'required', // password can only be alphanumeric and has to be greater than 3 characters
-            'password_confirm'    => 'required'
-        );
+        return view('user_edit');
+    }
 
-        // run the validation rules on the inputs from the form
-        $validator = Validator::make(Input::all(), $rules);
+    public function getEditPasswordPage()
+    {
+        return view('password_edit');
+    }
 
-        // if the validator fails, redirect back to the form
-        if ($validator->fails()) {
-            return Redirect::to('login')
-                ->withErrors($validator) // send back all errors to the login form
-                ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
-        } else {
+    public function updateUser(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+        ]);
 
-            // create our user data for the authentication
-            $userdata = array(
-                'email'     => Input::get('email'),
-                'password'  => Input::get('password')
-            );
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $message = 'Het is niet gelukt om de gegevens te wijzigen';
+        if($user->save())
+        {
+            $message = 'Uw gegevens zijn succesvol gewijzigd.';
+        }
+        return redirect('user_edit/')->with(['message' => $message]);
+    }
 
-            // attempt to do the login
-            if (Auth::attempt($userdata)) {
+    public function doChangePassword(Request $request)
+    {
+        $this->validate($request, [
+            'password_current' => 'required|min:6',
+            'password' => 'required|min:6',
+            'password_confirm' => 'required|min:6',
+        ]);
 
-                // validation successful!
-                // redirect them to the secure section or whatever
-                // return Redirect::to('secure');
-                // for now we'll just echo success (even though echoing in a controller is bad)
-                echo 'SUCCESS!';
+        $current = bcrypt($request->password_current);
+        $password = bcrypt($request->password);
+        $confirm = bcrypt($request->password_confirm);
+        dd($current);
 
-            } else {
+        $user = User::find(Auth::user()->id);
 
-                // validation not successful, send back to form
-                return Redirect::to('home');
+        if($user->password !== $current){
+            $message = 'Het huidige wachtwoord klopt niet met onze gegevens';
+            return view('password_edit')->with(['message' => $message]);
+        }
 
+        if($password !== $confirm)
+        {
+            $message = 'De wachtwoorden komen niet overeen.';
+            return view('password_edit')->with(['message' => $message]);
+        }else
+        {
+            if ($user->save()) {
+                $message = 'U heeft uw wachtwoord succesvol gewijzigd';
+                 return view('password_edit')->with(['message' => $message]);
             }
-
         }
     }
 }

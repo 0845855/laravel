@@ -15,7 +15,7 @@
                         <p>Hallo {{ Auth::user()->name }},<br/>
                             Welkom op je profielpagina. Hier is het mogelijk om je gegevens aan te passen.</p>
 
-                        <p><a href="password_edit">Wachtwoord aanpassen</a><br/>
+                        <p><a href="password_edit">Wachtwoord aanpassen (Work in progress)</a><br/>
                             <a href="user_edit">Gegevens aanpassen</a></p>
                 </div>
             </div>
