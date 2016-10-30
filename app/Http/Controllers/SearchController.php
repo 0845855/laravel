@@ -53,7 +53,7 @@ class SearchController extends Controller
             }
         }
 
-        $search->where('title', 'like', '%'.$name.'%')
+        $search = $search->where('title', 'like', '%'.$name.'%')
             ->orWhere('introduction', 'like', '%'.$name.'%')
             ->orWhere('news_item', 'like', '%'.$name.'%');
 
